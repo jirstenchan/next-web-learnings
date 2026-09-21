@@ -1,11 +1,10 @@
 import Link from "next/link";
-
 type Crumb = { label: string; href?: string };
 type Props = { items: Crumb[] };
 
 export function Breadcrumbs({ items }: Props) {
   return (
-    <nav className="text-sm text-neutral-500">
+    <nav className="text-m text-white">
       <ol className="flex flex-wrap items-center gap-2">
         {items.map((item, i) => (
           <li key={item.href ?? item.label} className="flex items-center gap-2">
@@ -13,12 +12,12 @@ export function Breadcrumbs({ items }: Props) {
             {item.href ? (
               <Link
                 href={item.href}
-                className="hover:text-neutral-900 hover:underline"
+                className="text-white hover:text-amber-500 hover:underline transition-colors duration-500 ease-in-out"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className="text-neutral-900">{item.label}</span>
+              <span className="font-bold text-xl text-white">{item.label}</span>
             )}
           </li>
         ))}
